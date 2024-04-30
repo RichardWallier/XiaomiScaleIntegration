@@ -1,0 +1,98 @@
+<!-- <ng-container *ngIf="initBle$ | async"></ng-container> -->
+
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-icon
+      class="ion-margin-left"
+      name="close-outline"
+      color="white"
+      size="large"
+    />
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <div id="scale-icon">
+      <ion-icon name="scale-outline" size="large" />
+    </div>
+    <ion-text id="title">Body Weight</ion-text>
+    <div id="content" class="ion-margin-top">
+      <div id="content-card">
+        <div id="content-card-values">
+          <ion-text class="display-number">
+            {{ this.bodyData.weight ? (this.bodyData.weight | number : '2.1-1')
+            : this.dataHistory[this.dataHistory.length - 1].weight }}
+          </ion-text>
+          <ion-text style="margin: 0">kg</ion-text>
+        </div>
+        <ion-text id="subtitle">Current weight</ion-text>
+      </div>
+
+      <div id="content-card" style="color: #59a55c">
+        <div id="content-card-values">
+          <ion-text class="display-number">
+            {{this.bodyData.bmr | number : '1.0-2'}}
+          </ion-text>
+          <ion-text>cal/day</ion-text>
+        </div>
+        <ion-text id="subtitle">Trend </ion-text>
+      </div>
+    </div>
+    <div id="bmi-bar" class="ion-margin">
+      <div
+        [ngStyle]="{'transform': 'translateX(' + (((264 / 45) * this.bodyData.bmi) - 16).toString() + 'px)'}"
+        id="bmi-indicator"
+      >
+        <ion-text id="text-indicator">
+          {{this.bodyData.bmi | number : '2.0-0'}}
+        </ion-text>
+        <ion-icon name="caret-up-outline" size="large"></ion-icon>
+      </div>
+    </div>
+    <ion-text id="subtitle"> BMI </ion-text>
+    <ion-text>{{this.statusScan}}</ion-text>
+  </div>
+
+  <div class="chart-container">
+    <div echarts [options]="chartOption" [merge]="chartData" (chartInit)="onChartInit($event)" class="chart"></div>
+    <div class="chart-footer">
+      <ion-button fill="outline" color="medium" class="chart-button"
+        >15 May</ion-button
+      >
+      <ion-button fill="outline" color="medium" class="chart-button"
+        >881 kg</ion-button
+      >
+    </div>
+  </div>
+  <div>
+    <ion-list *ngFor="let data of this.dataHistory">
+      <ion-item> <ion-label>{{data.weight}}</ion-label> </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-buttons class="footer-buttons">
+    <!-- <div class="button-container">
+      <ion-button class="footer-button">
+        <ion-icon name="calendar-outline" size="large" />
+      </ion-button>
+      <ion-text id="subtitle">Calendar</ion-text>
+    </div> -->
+
+    <div class="button-container">
+      <ion-button (click)="share()" class="footer-button">
+        <ion-icon name="share-outline" size="large" />
+      </ion-button>
+      <ion-text id="subtitle">Share</ion-text>
+    </div>
+
+    <!-- <div class="button-container">
+      <ion-button class="footer-button">
+        <ion-icon name="add-outline" size="large" />
+      </ion-button>
+      <ion-text id="subtitle">Add Weight</ion-text>
+    </div> -->
+  </ion-buttons>
+</ion-footer>

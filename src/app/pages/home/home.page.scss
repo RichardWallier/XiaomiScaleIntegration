@@ -1,0 +1,161 @@
+/* define variables for the primary colors */
+$background: #F5F5F5;
+$secondary: #E8E8E8;
+
+
+ion-content, ion-header,ion-toolbar {
+  --background: $background;
+  --padding-end: 15px;
+  --padding-start: 15px;
+}
+
+.footer-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $background;
+  border-radius: 50%;
+  height: fit-content;
+  aspect-ratio: 1;
+}
+.footer-button > ion-icon {
+  padding: 15px;
+  color: black;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#title {
+  font-family: 'Helvetica Neue';
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 49px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+#content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 80px;
+}
+
+.display-number {
+  font-size:30px;
+  font-weight: 700;
+}
+
+#bmi-bar {
+  background-color: aqua;
+  height: 15px;
+  width: 264px;
+  background: linear-gradient(270deg, #D8523F 0%, #F7CE45 30%, #5BA360 51%, #F7CE45 70%, #D8523F 100%);
+  border-radius: 7.5px;
+  position: relative;
+}
+#bmi-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  transition: transform ease 0.2s;
+  // transform: translateX(calc(200px - 16px));
+}
+
+#text-indicator {
+  font-size: 24px;
+  font-weight: 700;
+  position: absolute;
+  transform: translateY(-35px);
+}
+
+#subtitle {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: $secondary;
+}
+
+#text {
+  font-size: 100px;
+}
+
+#content-card {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+
+#content-card-values {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
+}
+
+#scale-icon {
+  --background: $secondary;
+}
+
+#scale-icon > ion-icon {
+  border-radius: 100%;
+  padding: 16px;
+  background: $background;
+}
+
+#icon {
+  display: flex;
+  background-color: $background;
+  border-radius: 50%;
+  padding: 15px;
+  justify-content: center;
+}
+
+.chart-container {
+  margin-top: 20px;
+  width: 100%;
+  border: solid 1px gray;
+  border-radius: 20px;
+}
+
+.chart {
+  margin-top: -30px;
+  width: 100%;
+  height: 300px;
+  overflow: scroll;
+}
+
+.chart-footer {
+  display: flex;
+  margin-top: 30px;
+  justify-content: space-around;
+}
+
+.chart-button {
+  margin-top: -15px;
+  margin-bottom: 20px;
+}

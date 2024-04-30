@@ -1,0 +1,7 @@
+{
+  "name": "ScaleAPITest",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
